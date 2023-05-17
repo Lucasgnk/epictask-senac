@@ -1,9 +1,9 @@
-document.querySelector("ltrar_pendentes").addEventListener("click", () =>{
+document.querySelector("#filtrar_pendentes").addEventListener("click", () =>{
     let tarefasFiltradas = tarefas.filter(tarefa => !tarefa.concluida)
     filtrar(tarefasFiltradas)
 })
 
-document.querySelector("ltrar_concluidas").addEventListener("click", () =>{
+document.querySelector("#filtrar_concluidas").addEventListener("click", () =>{
     let tarefasFiltradas = tarefas.filter(tarefa => tarefa.concluida)
     filtrar(tarefasFiltradas)
 })

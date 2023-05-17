@@ -16,9 +16,9 @@ function atualizar(){
 
 function filtrar(lista){
     document.querySelector("#tarefas").innerHTML = ""
-    lista.forEach(tarefa =>{
+    lista.forEach(tarefa => 
         document.querySelector("#tarefas").innerHTML += criarCard(tarefa)
-    })
+    )
 }
 
 function cadastrar() {
@@ -32,7 +32,7 @@ function cadastrar() {
         titulo,
         pontos,
         categoria,
-        concluida: true
+        concluida: false
     }
 
     if (!isValid(tarefa.titulo, document.querySelector("#titulo"))) return
@@ -52,20 +52,21 @@ function isValid(valor, campo){
     }else{
         campo.classList.add("is-valid")
         campo.classList.remove("is-invalid")
-        return false
+        return true
     }
 
 }
 
 function apagar(id){
-   tarefas = tarefas.filter(tarefa=> tarefa.id !== id)
-   atualizar()
+    tarefas = tarefas.filter(tarefa=> tarefa.id !== id)
+    atualizar()
 }
 
 function concluir(id){
-    let tarefaEncontrada = tarefas.find(tarefa => tarefa.id == id)
-      tarefaEncontrada.concluida = true
-      atualizar()
+    let tarefaEncontrada = 
+            tarefas.find(tarefa => tarefa.id == id)
+    tarefaEncontrada.concluida = true
+    atualizar()
 }
 
 function criarCard(tarefa) {
@@ -83,7 +84,7 @@ function criarCard(tarefa) {
                 <span class="badge text-bg-warning">${tarefa.pontos}pt</span>
             </div>
             <div class="card-footer">
-                <a onClick="concluir(${tarefa.id})" href="#" class="btn btn-success ${disabled} " title="marcar como concluída">
+                <a onClick="concluir(${tarefa.id})" href="#" class="btn btn-success ${disabled}" title="marcar como concluída">
                     <i class="bi bi-check2"></i>
                 </a>
                 <a href="#" onClick="apagar(${tarefa.id})" class="btn btn-danger" title="apagar tarefa">
